@@ -5,6 +5,7 @@ public class Person {
 	private String fullName;
 	private String email;
 	private String gender;
+	private String address;
 	private String country;
 	private String uf;
 	private String city;
@@ -17,12 +18,13 @@ public class Person {
 	}
 	
 	//Constructor criado com generate
-	public Person(String fullName, String email, String gender, String country, String uf, String city,
+	public Person(String fullName, String email, String gender,String address, String country, String uf, String city,
 			String zipCode) {
 
 		this.fullName = fullName;
 		this.email = email;
 		this.gender = gender;
+		this.address = address;
 		this.country = country;
 		this.uf = uf;
 		this.city = city;
@@ -30,6 +32,13 @@ public class Person {
 	}
 
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public String getFullName() {
 		return fullName;
