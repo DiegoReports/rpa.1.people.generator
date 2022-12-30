@@ -78,10 +78,14 @@ public class Main {
 	
 	//CRIANDO EXCEL DE SAIDA
 	private static void createOutputExcel(List<Person> personList) {
+		//ENDERECO DO ARQUIVO DE SAIDA
+		String outputFile = "C:\\Users\\diego\\Documents\\RPA INSIDERS\\rpa-turma-01\\rpa.1.people.generator\\data\\01.entrada\\people_file.xlsx";
+		
 		//personList.forEach(person -> System.out.println(person.getFullName()+ " - " + person.getEmail()));
 		
 		//USANDO TRY COM RESOURCES (DENTRO JÁ POSSUI METODO CLOSEABLE)
-		try (Workbook workbook = new XSSFWorkbook()) {
+		try (Workbook workbook = new XSSFWorkbook();
+			FileOutputStream outputStream = new FileOutputStream(outputFile)) {
 			//CRIANDO ESTRURUA DE ARQUIVO (tipo .xlsx = XSSF)
 			
 			//CRIANDO ABA NA PLANILHA
@@ -117,9 +121,7 @@ public class Main {
 				
 			}
 			
-			//ENDERECO DO ARQUIVO DE SAIDA
-			String outputFile = "C:\\Users\\diego\\Documents\\RPA INSIDERS\\rpa-turma-01\\rpa.1.people.generator\\data\\01.entrada\\people_file.xlsx";
-			FileOutputStream outputStream = new FileOutputStream(outputFile);
+			//Escreva no workbook
 			workbook.write(outputStream);
 			
 			//FECHANDO PROCESSO DA NOSSA WORKBOOK
